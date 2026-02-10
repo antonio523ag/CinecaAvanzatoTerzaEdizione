@@ -1,0 +1,35 @@
+utente{
+	nome, cognome,email, password, dataNascita,ruolo
+}
+
+libro{
+	autore,titolo,dataPub,isbn
+}
+
+autore{
+	nome,cognome,dataNascita
+}
+
+noleggio{
+	utente,libro, dataNoleggio,dataRiconsegna
+}
+
+utente non loggato{
+	vedere i libri, cercare i libri per autore/titolo/dataPub/isbn
+	registrarsi
+	login
+}
+
+utente registrato{
+	effettuare un noleggio, riconsegnare, tutte le funzioni dell'utente non registrato
+}
+
+utente admin{
+	inserire un libro, inserire un autore, eliminare un libro (solo se non noleggiato), tutte le funzionalità dell'utente non loggato
+}
+
+utente superAdmin{
+	tutte le funzionalità dell'utente admin
+	creare o cancellare utenti admin
+}
+

@@ -21,7 +21,8 @@ utente non loggato{
 }
 
 utente registrato{
-	effettuare un noleggio, riconsegnare, tutte le funzioni dell'utente non registrato
+	effettuare un noleggio, riconsegnare, tutte le funzioni dell'utente non registrato, vedere i propri noleggi attivi
+	vedere lo storico dei propri noleggi
 }
 
 utente admin{

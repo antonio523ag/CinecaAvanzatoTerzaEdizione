@@ -1,0 +1,13 @@
+spring:
+  web:
+    error:
+      include-stacktrace: always
+      include-message: always
+      include-path: always
+      include-binding-errors: always
+      include-exception: true
+
+mio:
+  custom:
+    tag:
+      key: chiaveAbbastaLungaPerCodificareUnTokenJwtInTest

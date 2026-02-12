@@ -21,7 +21,7 @@ import java.util.Map;
 @EnableMethodSecurity
 public class GraphResolver {
 
-   private final GraphFacade facade;
+    private final GraphFacade facade;
 
    /*
    findAutomobileById(id:ID!):Automobile!
@@ -33,69 +33,65 @@ public class GraphResolver {
     */
 
     @QueryMapping
-    public AutomobileDTO findAutomobileById(@Argument long id){
+    public AutomobileDTO findAutomobileById(@Argument long id) {
         return facade.findAutomobileById(id);
     }
 
     @QueryMapping
-    public MarcaDTO findMarcaById(@Argument long id){
+    public MarcaDTO findMarcaById(@Argument long id) {
         return facade.findMarcaById(id);
     }
 
     @QueryMapping
-    public UtenteDTO findUtenteById(@Argument long id){
+    public UtenteDTO findUtenteById(@Argument long id) {
         return facade.findUtenteById(id);
     }
 
     @QueryMapping
-    public List<AutomobileDTO> findAllAutomobile(){
+    public List<AutomobileDTO> findAllAutomobile() {
         return facade.findAllAutomobile();
     }
 
     @QueryMapping
-    public List<MarcaDTO> findAllMarca(){
+    public List<MarcaDTO> findAllMarca() {
         return facade.findallCasaAutomobilistica();
     }
 
     @QueryMapping
-    public List<UtenteDTO> findAllUtente(){
+    public List<UtenteDTO> findAllUtente() {
         return facade.findAllUtente();
     }
 
-     @SchemaMapping
-    public List<UtenteDTO> trovaProprietari(AutomobileDTO automobile){
-        return facade.trovaProprietari(automobile);
-     }
 
-     @SchemaMapping
-     public List<AutomobileDTO> trovaPerMarca(MarcaDTO marca){
+    @SchemaMapping(typeName = "CasaAutomobilistica", field = "automobili")
+    public List<AutomobileDTO> trovaPerMarca(MarcaDTO marca) {
         return facade.trovaPerMarca(marca);
-     }
+    }
 
-     @MutationMapping
-     public boolean aggiungiAutomobile(@Argument AggiungiAutomobileDTO dto){
+    @MutationMapping
+    public boolean aggiungiAutomobile(@Argument AggiungiAutomobileDTO dto) {
         facade.aggiungiAutomobile(dto);
         return true;
-     }
+    }
 
-     @QueryMapping
-     @PreAuthorize("isAuthenticated()")
-     public List<AutomobileDTO> getAutomobiliNoleggiate(@AuthenticationPrincipal Utente utente){
+    @QueryMapping
+    @PreAuthorize("isAuthenticated()")
+    public List<AutomobileDTO> getAutomobiliNoleggiate(@AuthenticationPrincipal Utente utente) {
         return facade.getAutomobiliNoleggiate(utente);
-     }
+    }
 
-     @QueryMapping
-     public String login(@Argument String email,@Argument String password){
-        return facade.login(email,password);
-     }
+    @QueryMapping
+    public String login(@Argument String email, @Argument String password) {
+        return facade.login(email, password);
+    }
 
-     @BatchMapping
-    public Map<AutomobileDTO,List<UtenteDTO>> automobili(List<AutomobileDTO> automobili){
+    @BatchMapping(field = "proprietari", typeName = "Automobile")
+    public Map<AutomobileDTO, List<UtenteDTO>> automobili(List<AutomobileDTO> automobili) {
         return facade.trovaProprietari(automobili);
-     }
+    }
 
-     @SchemaMapping
-    public String nomeCompleto(UtenteDTO utente){
-        return utente.getNome()+" "+utente.getCognome();
-     }
+    @SchemaMapping(typeName = "Utente")
+    public String nomeCompleto(UtenteDTO utente) {
+        return utente.getNome() + " " + utente.getCognome();
+    }
 }

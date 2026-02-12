@@ -25,4 +25,7 @@ public class Automobile {
     @JoinColumn(name ="marca_fk", nullable = false)
     @NotNull(message = "la marca non può essere nulla")
     private CasaAutomobilistica marca;
+
+    @ManyToMany(mappedBy = "automobili")
+    private List<Utente> proprietari;
 }

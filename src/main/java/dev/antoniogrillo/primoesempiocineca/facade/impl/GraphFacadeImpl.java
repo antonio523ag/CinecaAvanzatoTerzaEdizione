@@ -112,4 +112,10 @@ public class GraphFacadeImpl implements GraphFacade {
         List<Automobile> a=automobileService.findByMarcaId(marca.getId());
         return graphMapper.toAutomobileDTO(a);
     }
+
+    @Override
+    public Map<UtenteDTO, List<AutomobileDTO>> trovaUtentiProprietari(List<UtenteDTO> utenti) {
+        List<Long> ids=utenti.stream().map(UtenteDTO::getId).toList();
+        return utenteService.trovaProprietariMap(ids);
+    }
 }

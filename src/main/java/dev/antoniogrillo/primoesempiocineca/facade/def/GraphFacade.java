@@ -32,4 +32,6 @@ public interface GraphFacade {
     String login(String email, String password);
 
     List<AutomobileDTO> trovaPerMarca(MarcaDTO marca);
+
+    Map<UtenteDTO, List<AutomobileDTO>> trovaUtentiProprietari(List<UtenteDTO> utenti);
 }

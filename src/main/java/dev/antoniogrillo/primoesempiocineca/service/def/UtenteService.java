@@ -1,6 +1,7 @@
 package dev.antoniogrillo.primoesempiocineca.service.def;
 
 import dev.antoniogrillo.primoesempiocineca.dto.graph.AutomobileDTO;
+import dev.antoniogrillo.primoesempiocineca.dto.graph.UtenteDTO;
 import dev.antoniogrillo.primoesempiocineca.model.Automobile;
 import dev.antoniogrillo.primoesempiocineca.model.Utente;
 import jakarta.validation.Valid;
@@ -8,6 +9,7 @@ import jakarta.validation.constraints.*;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import java.util.Map;
 
 @Validated
 public interface UtenteService {
@@ -22,6 +24,8 @@ public interface UtenteService {
     List<Utente> findAll();
 
     List<Utente> trovaProprietari(List<Long> ids);
+
+    Map<UtenteDTO,List<AutomobileDTO>> trovaProprietariMap(List<Long> idUtenti);
 
     List<Utente> trovaProprietari(long idAutomobile);
 }

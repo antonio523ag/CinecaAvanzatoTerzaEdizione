@@ -90,6 +90,11 @@ public class GraphResolver {
         return facade.trovaProprietari(automobili);
     }
 
+    @BatchMapping(field = "automobili", typeName = "Utente")
+    public Map<UtenteDTO, List<AutomobileDTO>> utenti(List<UtenteDTO> utenti) {
+        return facade.trovaUtentiProprietari(utenti);
+    }
+
     @SchemaMapping(typeName = "Utente")
     public String nomeCompleto(UtenteDTO utente) {
         return utente.getNome() + " " + utente.getCognome();

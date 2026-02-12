@@ -2,18 +2,18 @@ package dev.antoniogrillo.primoesempiocineca.service.criteriaimpl;
 
 import dev.antoniogrillo.primoesempiocineca.dto.internal.AutomobileParameter;
 import dev.antoniogrillo.primoesempiocineca.model.Automobile;
-import dev.antoniogrillo.primoesempiocineca.repository.criteria.AutomobileRepository;
+import dev.antoniogrillo.primoesempiocineca.repository.criteria.AutomobileCriteriaRepository;
 import dev.antoniogrillo.primoesempiocineca.service.def.AutomobileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 @RequiredArgsConstructor
 public class AutomobileServiceImpl implements AutomobileService {
 
-    private final AutomobileRepository repository;
+    private final AutomobileCriteriaRepository repository;
 
 
     @Override

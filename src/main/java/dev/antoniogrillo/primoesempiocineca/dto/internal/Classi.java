@@ -1,5 +1,5 @@
 package dev.antoniogrillo.primoesempiocineca.dto.internal;
 
 public enum Classi {
-    AUTOMOBILE,UTENTE,CASA_AUTOMOBILISTICA;
+    AUTOMOBILE,UTENTE,CASA_AUTOMOBILISTICA
 }

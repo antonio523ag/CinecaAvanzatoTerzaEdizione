@@ -4,6 +4,7 @@ import dev.antoniogrillo.primoesempiocineca.model.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UtenteRepository extends JpaRepository<Utente, Long> {
@@ -17,4 +18,10 @@ public interface UtenteRepository extends JpaRepository<Utente, Long> {
     Optional<Utente> findByEmailAndPassword(String email,String password);
 
     Optional<Utente> findByEmail(String nonSo);
+
+    @Query(nativeQuery = true, value = "select * from utente u join proprietari_automobili p on p.utente_fk=u.id where p.automobile_fk in :lista")
+    List<Utente> trovaProprietari(List<Long> lista);
+
+    @Query(nativeQuery = true, value = "select * from utente u join proprietari_automobili p on p.utente_fk=u.id where p.automobile_fk = :idAutomobile")
+    List<Utente> trovaProprietari(long idAutomobile);
 }

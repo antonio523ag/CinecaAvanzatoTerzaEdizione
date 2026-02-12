@@ -33,6 +33,7 @@ public class PathController {
                         .requestMatchers("/user/**").hasAnyRole(Ruolo.USER.name(),Ruolo.ADMIN.name(),Ruolo.SUPERADMIN.name())
                         .requestMatchers("/admin/**").hasRole(Ruolo.ADMIN.name())
                         .requestMatchers("/superadmin/**").hasRole(Ruolo.SUPERADMIN.name())
+                        .requestMatchers("/graphql").permitAll()
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)

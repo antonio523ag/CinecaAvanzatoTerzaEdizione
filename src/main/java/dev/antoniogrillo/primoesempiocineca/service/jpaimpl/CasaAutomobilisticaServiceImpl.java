@@ -1,5 +1,6 @@
 package dev.antoniogrillo.primoesempiocineca.service.jpaimpl;
 
+import dev.antoniogrillo.primoesempiocineca.exception.CustomResponseException;
 import dev.antoniogrillo.primoesempiocineca.model.CasaAutomobilistica;
 import dev.antoniogrillo.primoesempiocineca.repository.jparepo.CasaAutomobilisticaRepository;
 import dev.antoniogrillo.primoesempiocineca.service.def.CasaAutomobilisticaService;
@@ -28,6 +29,6 @@ public class CasaAutomobilisticaServiceImpl implements CasaAutomobilisticaServic
 
     @Override
     public CasaAutomobilistica getById(long id) {
-        return repo.findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Casa automobilistica non trovata con id: " + id));
+        return repo.findById(id).orElseThrow(()->new CustomResponseException(HttpStatus.NOT_FOUND, "Casa automobilistica non trovata con id: " + id));
     }
 }

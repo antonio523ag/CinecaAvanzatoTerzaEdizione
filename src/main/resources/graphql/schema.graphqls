@@ -1,0 +1,44 @@
+type Automobile{
+    id:ID!
+    modello: String!
+    targa: String!
+    marca: CasaAutomobilistica
+    proprietari: [Utente]
+}
+
+type CasaAutomobilistica{
+    id:ID!
+    nome:String!
+    automobili:[Automobile!]!
+}
+
+type Utente{
+    id:ID!
+    nome:String!
+    cognome:String!
+    email:String!
+    ruolo:String!
+    automobili:[Automobile!]
+    nomeCompleto:String
+}
+
+type Query{
+    findAutomobileById(id:ID!):Automobile!
+    findMarcaById(id:ID!):CasaAutomobilistica!
+    findUtenteById(id:ID!):Utente!
+    findAllAutomobile:[Automobile!]!
+    findAllMarca:[CasaAutomobilistica!]!
+    findAllUtente:[Utente!]!
+    getAutomobiliNoleggiate:[Automobile!]!
+    login(email:String,password:String):String!
+}
+
+type Mutation{
+    aggiungiAutomobile(dto:AggiungiAutomobile):Boolean
+}
+
+input AggiungiAutomobile{
+    marcaId:ID!
+    modello:String!
+    targa:String!
+}

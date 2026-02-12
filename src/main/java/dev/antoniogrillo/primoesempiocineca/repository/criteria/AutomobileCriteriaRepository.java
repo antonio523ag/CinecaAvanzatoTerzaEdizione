@@ -19,7 +19,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class AutomobileRepository {
+public class AutomobileCriteriaRepository {
 
     private final EntityManager manager;
 

@@ -10,7 +10,6 @@ import dev.antoniogrillo.primoesempiocineca.mapper.GraphMapper;
 import dev.antoniogrillo.primoesempiocineca.model.Automobile;
 import dev.antoniogrillo.primoesempiocineca.model.CasaAutomobilistica;
 import dev.antoniogrillo.primoesempiocineca.model.Utente;
-import dev.antoniogrillo.primoesempiocineca.resolver.GraphResolver;
 import dev.antoniogrillo.primoesempiocineca.service.def.AutomobileService;
 import dev.antoniogrillo.primoesempiocineca.service.def.CasaAutomobilisticaService;
 import dev.antoniogrillo.primoesempiocineca.service.def.GestoreTokenService;

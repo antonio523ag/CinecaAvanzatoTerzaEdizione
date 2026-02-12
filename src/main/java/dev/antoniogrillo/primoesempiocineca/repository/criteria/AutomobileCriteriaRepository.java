@@ -73,6 +73,7 @@ public class AutomobileCriteriaRepository {
         return manager.createQuery(cq);
     }
 
+    @SafeVarargs
     private <P>TypedQuery<Automobile> creaQuery(QueryParam<P>... parametri){
         CriteriaBuilder cb = manager.getCriteriaBuilder();
         CriteriaQuery<Automobile> cq = cb.createQuery(Automobile.class);

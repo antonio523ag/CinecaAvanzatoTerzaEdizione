@@ -5,7 +5,6 @@ import dev.antoniogrillo.primoesempiocineca.model.Automobile;
 import dev.antoniogrillo.primoesempiocineca.repository.criteria.AutomobileCriteriaRepository;
 import dev.antoniogrillo.primoesempiocineca.service.def.AutomobileService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

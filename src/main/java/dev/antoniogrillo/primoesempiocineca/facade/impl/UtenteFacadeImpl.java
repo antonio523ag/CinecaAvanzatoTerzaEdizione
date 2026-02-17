@@ -10,7 +10,9 @@ import dev.antoniogrillo.primoesempiocineca.model.Utente;
 import dev.antoniogrillo.primoesempiocineca.service.def.GestoreTokenService;
 import dev.antoniogrillo.primoesempiocineca.service.def.UtenteService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +31,7 @@ public class UtenteFacadeImpl implements UtenteFacade {
     @Override
     public LoginResponseDTO login(LoginRequestDTO dto) {
         Utente u=service.login(dto.username(),dto.password());
+        if(u==null)throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         String token=tokenService.generaToken(u);
         LoginResponseDTO lr=new LoginResponseDTO();
         lr.setToken(token);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration status="WARN">
+    <Properties>
+        <Property name="LOG_SCHEMA" value="%d %p %m %n"/>
+        <Property name="PATH_DESTINAZIONE" value="C:\log4j2"/>
+    </Properties>
+    <Appenders>
+        <Console name="miaConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_SCHEMA}"/>
+            <LevelRangeFilter minLevel="FATAL" maxLevel="debug"
+                              onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+        <File name="logErrori" fileName="${PATH_DESTINAZIONE}\mioFile.txt">
+            <PatternLayout pattern="${LOG_SCHEMA}"/>
+            <LevelRangeFilter minLevel="FATAL" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+        <File name="logInfoEDebug" fileName="${PATH_DESTINAZIONE}\mioFileDebug.txt">
+            <PatternLayout pattern="${LOG_SCHEMA}"/>
+            <LevelRangeFilter minLevel="INFO" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="logErroriSuFile" level="DEBUG">
+            <AppenderRef ref="logErrori"/>
+            <AppenderRef ref="logInfoEDebug"/>
+        </Logger>
+        <Root level="trace">
+            <AppenderRef ref="miaConsole"/>
+        </Root>
+    </Loggers>
+</configuration>
